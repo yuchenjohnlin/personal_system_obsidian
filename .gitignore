@@ -1,0 +1,5 @@
+# Ignore Obsidian cache and workspace state
+.obsidian/workspace*
+.obsidian/workspace-*
+.obsidian/cache/
+.DS_Store
