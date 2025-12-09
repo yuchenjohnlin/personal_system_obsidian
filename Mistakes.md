@@ -1,0 +1,3 @@
+1. When you try to call an api from the backend but it returns "Not Found" and not return expected error in the backend. 
+	- You might forgot to add the route to the backend main
+2. When making changes in the backends and get a 422, it might be because pydantic cannot turn the request body into the correct form because the keys do not match between the front and backend. one is passing "username: email" while backend is "email: email"
