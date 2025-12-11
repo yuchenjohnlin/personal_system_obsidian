@@ -124,3 +124,22 @@ Stored in HttpOnly cookies:
 Typically Redis:
 - Sessions for web → `session_id → user_id`
 - Refresh tokens for mobile → `token_id → user_id`
+
+## Password Hashing 
+### What algorithms are used in industry?
+Today, best practice is:
+##### 🔥 **Argon2** (most recommended)
+Modern, memory-hard, slow algorithm resistant to GPU attacks.
+##### ⭐ **PBKDF2** (still widely used)
+Used by Django, AWS Cognito, and many enterprise apps.
+##### ⭐ **bcrypt** (older but still acceptable)
+Better than plaintext/SHA but aging.
+**DO NOT USE:**
+❌ MD5  
+❌ SHA1  
+❌ SHA256  
+❌ Any plain cryptographic hash  
+❌ "hashlib.sha256(password)"
+
+These are not password hashing algorithms and are extremely unsafe.
+I was thinking of having 2 password hash functions and then maybe use the other onw when the users complain, but it is not that easy because you have to deal with the rehash where every user's hash has to be re ran.
